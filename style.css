@@ -170,3 +170,21 @@ h3 { font: 600 18px/1.3 var(--display); margin: 14px 0 6px; }
   .float-card { animation: none; }
   .window, .hero-shot:hover .window { transform: none; }
 }
+
+/* ---------------------------------------------------------------- compare + changelog */
+.table-wrap { overflow-x: auto; margin-top: 32px; border: 1px solid var(--line); border-radius: var(--radius); }
+.compare { width: 100%; border-collapse: collapse; min-width: 560px; }
+.compare th, .compare td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--line); font-size: 15px; }
+.compare tr:last-child td { border-bottom: none; }
+.compare th { font: 600 15px var(--display); background: var(--card-2); }
+.compare th:nth-child(2) { color: var(--accent-2); }
+.compare td:first-child { color: var(--dim); }
+.compare .yes { color: #7ae38a; font-weight: 600; }
+.compare .no { color: var(--faint); }
+.compare .part { color: #ffd24a; }
+.changelog { display: grid; gap: 14px; margin-top: 28px; }
+.changelog article { padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(180deg, var(--card-2), var(--card)); }
+.changelog h3 { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 10px; }
+.changelog h3 span { font: 500 13px var(--font); color: var(--faint); }
+.changelog ul { padding-left: 18px; color: var(--dim); display: grid; gap: 6px; font-size: 15px; }
+.footer a { color: var(--accent-2); }

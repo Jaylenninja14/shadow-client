@@ -4,7 +4,7 @@ A free, lightweight Minecraft launcher for Windows with a Lunar-style mod menu b
 
 **Website and downloads:** https://jaylenninja14.github.io/shadow-client/
 
-- Press **Right Shift** in game for 190+ HUD, PvP, Hypixel, visual and performance modules
+- Press **Right Shift** in game for 300+ HUD, PvP, Hypixel, visual and performance modules
 - Shadow HUD: totem, gapple, pearl and crystal counters, cooldowns, Target HUD, low-health warning
 - Java and Bedrock in one app, including a Bedrock mod menu
 - Mods and modpacks from Modrinth (and CurseForge with a key), checked for compatibility first
