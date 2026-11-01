@@ -102,7 +102,7 @@
         <article class="card">
           <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7.5L12 12l8.7-4.5M12 22V12"/></svg></div>
           <h3>Mods &amp; modpacks</h3>
-          <p>Browse Modrinth (and CurseForge with a key). Shadow Client checks versions, loaders, dependencies and known conflicts before anything is installed.</p>
+          <p>Browse Modrinth (and CurseForge with a key). Shadow Client checks versions, loaders, dependencies and known conflicts before anything is installed. Share your pack with a link: friends click it and get the same mods.</p>
         </article>
         <article class="card">
           <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h.01M15 9h.01M8.5 15c1 1 2.2 1.5 3.5 1.5s2.5-.5 3.5-1.5"/></svg></div>
@@ -223,6 +223,15 @@
       <h2>What's new</h2>
       <div class="changelog">
         <article>
+          <h3>Shadow Client 0.4.0 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>Share your mod pack:</strong> on Profiles, press <strong>Share</strong> on a profile and send the link. Your friend clicks it, presses <strong>Open in Shadow Client</strong>, and gets a new profile with the same Minecraft version, loader, mods, resource packs and shaders, downloaded from Modrinth and CurseForge. They see the full list before anything installs. Nothing is uploaded: the pack is inside the link. You can also paste a link in Profiles → <strong>Add from share link</strong>.</li>
+            <li><strong>Add an existing profile by copying it:</strong> Profiles → <strong>Add existing profile</strong> (and the first-start screen) now copies the profile's mods, settings and config into a new Shadow Client profile with the same name. Your original folder isn't changed, and the copy gets the built-in mod menu like any other profile.</li>
+            <li><strong>The MSI version updates itself:</strong> copies installed with Shadow-Client.msi now update from the &quot;Update needed&quot; message too, through Windows Installer (Windows may ask for admin rights if it was installed for all users). MSI copies on 0.3.2 or older need this one update installed by hand first.</li>
+            <li>Mods you added by hand are no longer downloaded twice when the launcher adds the built-in mods (for example Fabric API).</li>
+          </ul>
+        </article>
+        <article>
           <h3>Shadow Client 0.3.2 <span>November 1, 2026</span></h3>
           <ul>
             <li><strong>Fixed a crash on the title screen:</strong> going back to the title screen without a world (for example leaving Create New World when you have no worlds yet) could close the game with &quot;The current screen has not been correctly initialised&quot;. The in-game client is now Shadow Menu 2.0.1; profiles get it the next time you press PLAY.</li>
@@ -305,6 +314,10 @@
         <p>Bedrock can't load Java-style mods. Shadow Client starts it, changes Bedrock's own settings, and builds a small resource pack for things like the crosshair. That's what the Bedrock mod menu does.</p>
       </details>
       <details>
+        <summary>How do I share my mods with a friend?</summary>
+        <p>On <em>Profiles</em>, press <em>Share</em> on a profile and send the link. Your friend opens it, presses <em>Open in Shadow Client</em>, and gets a new profile with the same Minecraft version, loader, mods, resource packs and shaders, downloaded from Modrinth and CurseForge. They see the full list before anything installs. Nothing is uploaded: the pack is inside the link. Mods you added by hand that aren't on Modrinth or CurseForge are left out.</p>
+      </details>
+      <details>
         <summary>How do I join a server in one click?</summary>
         <p>Open <em>Servers</em>, add the server's address, and press <em>Join</em>. Shadow Client starts your selected profile and connects as soon as the game is up. Bedrock servers have a Join button too.</p>
       </details>
@@ -314,11 +327,11 @@
       </details>
       <details>
         <summary>How do I update?</summary>
-        <p>From 0.2.2, Shadow Client tells you when a new version is out ("Update needed") and updates itself when you press Update now; your profiles, worlds and settings stay. Older versions show a bar at the top: download the new installer and run it over your current version. The portable version: download the new zip and replace the old folder's files (keep its data folder).</p>
+        <p>From 0.2.2, Shadow Client tells you when a new version is out ("Update needed") and updates itself when you press Update now; your profiles, worlds and settings stay. From 0.4.0 the MSI version updates itself too. Older versions show a bar at the top: download the new installer and run it over your current version. The portable version: download the new zip and replace the old folder's files (keep its data folder).</p>
       </details>
       <details>
         <summary>Will it touch my existing .minecraft folder?</summary>
-        <p>No. Shadow Client keeps its own profiles and game files. It reads your official installation only when you import from it, and adds a profile to the official launcher only when you ask (its profile list is backed up first).</p>
+        <p>No. Shadow Client keeps its own profiles and game files. It reads your official installation only when you import from it (Profiles → <em>Add existing profile</em> copies its mods and settings into a new Shadow Client profile with the same name; the original stays as it is), and adds a profile to the official launcher only when you ask (its profile list is backed up first).</p>
       </details>
     </section>
   </main>
