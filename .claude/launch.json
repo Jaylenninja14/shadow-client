@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "website",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "scripts/serve-website.mjs",
+        "website",
+        "5190"
+      ],
+      "port": 5190
+    }
+  ]
+}

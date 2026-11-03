@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "_comment": "Only facts that cannot be read from Modrinth/CurseForge metadata live here: which mods replace the renderer, known conflicts, and the curated performance list. Per-version availability is always queried live, never assumed.",
+  "rendererMods": {
+    "modIds": ["sodium", "embeddium", "rubidium", "vulkanmod", "optifabric", "canvas"],
+    "projectIds": ["AANobbMI", "sk9rgfiA", "JYQhtZtO"],
+    "reason": "These mods each replace Minecraft's chunk renderer. Only one may be installed."
+  },
+  "conflicts": [
+    { "a": "sodium", "b": "optifabric", "reason": "OptiFine (through OptiFabric) patches the same renderer code as Sodium." },
+    { "a": "iris", "b": "optifabric", "reason": "Iris and OptiFine both implement shader pipelines." },
+    { "a": "sodium", "b": "vulkanmod", "reason": "VulkanMod replaces the whole renderer; it cannot run with Sodium." },
+    { "a": "sodium", "b": "embeddium", "reason": "Embeddium is a fork of Sodium; install only one." },
+    { "a": "sodium", "b": "rubidium", "reason": "Rubidium is a fork of Sodium; install only one." },
+    { "a": "iris", "b": "vulkanmod", "reason": "Iris requires Sodium's renderer, which VulkanMod replaces." },
+    { "a": "lithium", "b": "canary", "reason": "Canary is a Forge port of Lithium; install only one." },
+    { "a": "starlight", "b": "phosphor", "reason": "Both rewrite the lighting engine." }
+  ],
+  "projectToModId": {
+    "AANobbMI": "sodium",
+    "gvQqBUqZ": "lithium",
+    "uXXizFIs": "ferritecore",
+    "5ZwdcRci": "immediatelyfast",
+    "NNAgCjsB": "entityculling",
+    "nmDcB62a": "modernfix",
+    "LQ3K71Q1": "dynamic_fps",
+    "YL57xq9U": "iris",
+    "P7dR8mSH": "fabric-api",
+    "mOgUt4GM": "modmenu",
+    "JYQhtZtO": "vulkanmod",
+    "sk9rgfiA": "embeddium",
+    "51shyZVL": "moreculling",
+    "g96Z4WVZ": "badoptimizations",
+    "ozpC8eDC": "marlowcrystal",
+    "f5J5N4a3": "alwaysshield"
+  },
+  "performanceMods": [
+    { "slug": "sodium", "projectId": "AANobbMI", "name": "Sodium", "role": "Renderer", "summary": "Modern chunk renderer. Typically the single biggest FPS and stutter improvement.", "presets": ["low", "balanced", "high"], "loaders": ["fabric", "quilt", "neoforge"] },
+    { "slug": "lithium", "projectId": "gvQqBUqZ", "name": "Lithium", "role": "Game logic", "summary": "Optimises physics, mob AI and chunk ticking. Helps singleplayer worlds (the integrated server).", "presets": ["low", "balanced", "high"], "loaders": ["fabric", "quilt", "neoforge"] },
+    { "slug": "ferrite-core", "projectId": "uXXizFIs", "name": "FerriteCore", "role": "Memory", "summary": "Reduces RAM usage, valuable on 4–8 GB machines and in modpacks.", "presets": ["low", "balanced", "high"], "loaders": ["fabric", "quilt", "forge", "neoforge"] },
+    { "slug": "immediatelyfast", "projectId": "5ZwdcRci", "name": "ImmediatelyFast", "role": "Rendering", "summary": "Speeds up immediate-mode rendering such as HUD, text and entities.", "presets": ["low", "balanced", "high"], "loaders": ["fabric", "quilt", "forge", "neoforge"] },
+    { "slug": "entityculling", "projectId": "NNAgCjsB", "name": "Entity Culling", "role": "Rendering", "summary": "Skips rendering entities and block entities hidden behind walls.", "presets": ["low", "balanced", "high"], "loaders": ["fabric", "quilt", "forge", "neoforge"] },
+    { "slug": "dynamic-fps", "projectId": "LQ3K71Q1", "name": "Dynamic FPS", "role": "Power", "summary": "Lowers FPS when the game is unfocused or minimised. Saves battery and heat; no effect while playing.", "presets": ["low", "balanced"], "loaders": ["fabric", "quilt", "forge", "neoforge"] },
+    { "slug": "modernfix", "projectId": "nmDcB62a", "name": "ModernFix", "role": "Loading", "summary": "Faster startup and lower memory in larger modded setups. Not published for every Minecraft version.", "presets": ["low"], "loaders": ["fabric", "forge", "neoforge"] },
+    { "slug": "moreculling", "projectId": "51shyZVL", "name": "More Culling", "role": "Rendering", "summary": "Additional block culling (leaves, signs, item frames). Optional.", "presets": [], "loaders": ["fabric", "quilt", "neoforge"] },
+    { "slug": "badoptimizations", "projectId": "g96Z4WVZ", "name": "BadOptimizations", "role": "CPU", "summary": "Caches lightmap/sky computations. Optional, small gains.", "presets": [], "loaders": ["fabric", "forge", "neoforge"] }
+  ],
+  "shaderSupport": {
+    "irisProjectId": "YL57xq9U",
+    "lightShaders": [
+      { "slug": "makeup-ultra-fast-shaders", "projectId": "izsIPI7a", "name": "MakeUp - Ultra Fast", "note": "One of the lightest shader packs; still costs FPS on integrated graphics." }
+    ]
+  }
+}

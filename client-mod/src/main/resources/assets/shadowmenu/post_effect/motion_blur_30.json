@@ -1,0 +1,36 @@
+{
+    "targets": {
+        "blended": {},
+        "previous": {
+            "persistent": true
+        }
+    },
+    "passes": [
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "shadowmenu:post/motion_blur",
+            "inputs": [
+                { "sampler_name": "In", "target": "minecraft:main" },
+                { "sampler_name": "Prev", "target": "previous" }
+            ],
+            "output": "blended",
+            "uniforms": {
+                "ShadowBlurConfig": [
+                    { "name": "BlendFactor", "type": "float", "value": 0.28 }
+                ]
+            }
+        },
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "minecraft:core/blit_screen",
+            "inputs": [ { "sampler_name": "In", "target": "blended" } ],
+            "output": "previous"
+        },
+        {
+            "vertex_shader": "minecraft:core/screenquad",
+            "fragment_shader": "minecraft:core/blit_screen",
+            "inputs": [ { "sampler_name": "In", "target": "blended" } ],
+            "output": "minecraft:main"
+        }
+    ]
+}

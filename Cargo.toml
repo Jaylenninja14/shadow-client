@@ -1,0 +1,20 @@
+[workspace]
+resolver = "2"
+members = ["crates/pc-core", "src-tauri"]
+
+[workspace.package]
+version = "0.4.3"
+edition = "2021"
+
+[profile.dev]
+debug = 1
+
+# Hashing and zip work is painfully slow unoptimised; keep our own code debuggable.
+[profile.dev.package."*"]
+opt-level = 2
+
+[profile.release]
+lto = "thin"
+codegen-units = 4
+strip = true
+panic = "abort"

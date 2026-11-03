@@ -1,0 +1,17 @@
+Shadow Client — portable build
+====================================
+
+Run "Shadow Client.exe". Because portable.txt is next to it, everything
+(settings, profiles, downloaded game files, worlds) is stored in the "data"
+folder beside the exe. Nothing is written to %APPDATA% except the WebView2 cache.
+
+Requirements: Windows 10/11 64-bit with the Microsoft Edge WebView2 Runtime
+(built into Windows 11 and current Windows 10). No administrator rights needed.
+
+To move to another PC, copy the whole folder. To stop using portable mode,
+delete portable.txt (data then goes to %APPDATA%\ShadowClient).
+
+Documentation: README.md, docs\INSTALL.md, docs\TROUBLESHOOTING.md in the
+source repository. Third-party notices: THIRD_PARTY_NOTICES.md.
+
+Not affiliated with Mojang Studios or Microsoft.

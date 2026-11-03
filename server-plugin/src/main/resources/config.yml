@@ -1,0 +1,21 @@
+# ShadowCombat: combat timing rules for YOUR server. They are applied by the server, so
+# every client (Shadow Client or not) sees the same rules. Change them in game with
+# /shadowcombat (ops) or edit this file and run /shadowcombat reload.
+
+# Master switch.
+enabled: true
+
+# Ticks after a player's hit during which the same target can't take another full hit.
+# Vanilla is 10 (half a second). 0 = every hit registers. Only melee hits by players are
+# affected; fire, lava, falling etc. keep vanilla timing.
+hit-delay-ticks: 10
+
+# 1.8-style: weapons are always fully charged. Sword/axe hits always do full damage and
+# spear jabs (and the Lunge enchantment, which triggers on each jab) go as fast as you click.
+no-attack-cooldown: false
+
+# Shields block the moment you right-click (vanilla waits 0.25 s).
+no-shield-delay: false
+
+# Let players turn the tweaks off for themselves with /combat off.
+allow-player-toggle: true

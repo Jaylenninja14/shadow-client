@@ -1,0 +1,36 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.shadowclient.menu.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "AbstractClientPlayerMixin",
+    "BeaconRendererMixin",
+    "BossHealthOverlayAccessor",
+    "CameraMixin",
+    "CameraTypeMixin",
+    "ChatComponentMixin",
+    "ClientPacketListenerMixin",
+    "EntityRendererMixin",
+    "GameRendererMixin",
+    "GuiGraphicsMixin",
+    "GuiMixin",
+    "ItemInHandRendererMixin",
+    "LevelMixin",
+    "LevelRendererMixin",
+    "LightTextureMixin",
+    "LivingEntityRendererMixin",
+    "MinecraftMixin",
+    "MouseHandlerMixin",
+    "NameTagStorageMixin",
+    "OverlayTextureMixin",
+    "PlayerTabOverlayMixin",
+    "ScreenEffectRendererMixin",
+    "ScreenshotMixin",
+    "TntRendererMixin",
+    "WeatherEffectRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

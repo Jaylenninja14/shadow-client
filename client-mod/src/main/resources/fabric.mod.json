@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "shadowmenu",
+  "version": "${version}",
+  "name": "Shadow Menu",
+  "description": "Shadow Client's in-game client: Lunar-style mod menu (Right Shift), its own movable HUD with a drag-and-drop editor, zoom, freelook, motion blur, PvP, Hypixel and performance modules, and the Shadow Client title screen.",
+  "authors": [
+    "Shadow Client"
+  ],
+  "license": "MIT",
+  "icon": "assets/shadowmenu/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.shadowclient.menu.ShadowMenu"
+    ]
+  },
+  "mixins": [
+    "shadowmenu.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.0",
+    "minecraft": "~1.21.11",
+    "fabric-api": "*"
+  },
+  "conflicts": {
+    "axolotlclient": "*"
+  }
+}

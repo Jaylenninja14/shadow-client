@@ -1,0 +1,5 @@
+build/
+.gradle/
+run/
+# AxolotlClient jars used only for compiling (LGPL, from Modrinth); see README.md
+libs/*.jar

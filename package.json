@@ -1,0 +1,39 @@
+{
+  "name": "shadow-client",
+  "private": true,
+  "version": "0.4.3",
+  "type": "module",
+  "description": "Lightweight Minecraft Java Edition launcher focused on smooth gameplay on low-end hardware.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:rust": "cargo test -p pc-core",
+    "tauri": "tauri",
+    "app:dev": "tauri dev",
+    "app:build": "tauri build",
+    "branding": "node scripts/apply-branding.mjs",
+    "portable": "node scripts/make-portable.mjs",
+    "website": "node scripts/build-website.mjs",
+    "website:serve": "node scripts/serve-website.mjs website 5190",
+    "release": "node scripts/release.mjs"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.8.0",
+    "@tauri-apps/plugin-dialog": "^2.4.0",
+    "@tauri-apps/plugin-opener": "^2.5.0",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.8.4",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.7",
+    "vitest": "^3.2.4"
+  }
+}

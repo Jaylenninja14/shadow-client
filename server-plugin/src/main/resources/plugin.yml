@@ -1,0 +1,22 @@
+name: ShadowCombat
+version: ${project.version}
+main: com.shadowclient.combat.ShadowCombatPlugin
+api-version: '26.3'
+description: Toggleable server-side combat timing (hit delay, attack cooldown / spear jabs, shield delay) for your own server.
+commands:
+  shadowcombat:
+    description: Show or change the server's combat rules
+    usage: /shadowcombat [status | <feature> on|off | hitdelay <0-10> | reload]
+    aliases: [scombat]
+    permission: shadowcombat.admin
+  combat:
+    description: Turn the server's combat tweaks on or off for yourself
+    usage: /combat [on|off]
+    permission: shadowcombat.toggle
+permissions:
+  shadowcombat.admin:
+    description: Change the server's combat rules
+    default: op
+  shadowcombat.toggle:
+    description: Turn the combat tweaks on or off for yourself
+    default: true

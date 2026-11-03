@@ -1,0 +1,13 @@
+{
+  "productName": "Shadow Client",
+  "shortName": "Shadow",
+  "tagline": "A fast, lightweight Minecraft client with a Lunar-style mod menu, built for smooth PvP on any PC",
+  "identifier": "com.shadowclient.launcher",
+  "accent": "#9b7bff",
+  "logo": "branding/logo.svg",
+  "windowTitle": "Shadow Client",
+  "msaClientId": null,
+  "downloadsUrl": "https://github.com/Jaylenninja14/shadow-client/releases/latest/download/",
+  "websiteUrl": "https://jaylenninja14.github.io/shadow-client/",
+  "githubRepo": "Jaylenninja14/shadow-client"
+}

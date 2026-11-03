@@ -1,0 +1,14 @@
+node_modules/
+dist/
+target/
+release/
+*.log
+.env
+.env.*
+!.env.example
+# local secrets / dev data must never be committed
+secrets.local.json
+src-tauri/gen/schemas/
+coverage/
+.vite/
+website/downloads/

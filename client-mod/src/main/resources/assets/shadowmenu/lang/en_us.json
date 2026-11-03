@@ -1,0 +1,16 @@
+{
+  "key.shadowmenu.open": "Open mod menu",
+  "key.category.shadowmenu.main": "Shadow Menu",
+  "key.shadowmenu.waypoint": "Add waypoint",
+  "key.shadowmenu.autotext1": "Auto Text 1",
+  "key.shadowmenu.autotext2": "Auto Text 2",
+  "key.shadowmenu.autotext3": "Auto Text 3",
+  "key.shadowmenu.autotext4": "Auto Text 4",
+  "key.shadowmenu.autotext5": "Auto Text 5",
+  "key.shadowmenu.copycoords": "Copy coordinates",
+  "key.shadowmenu.clearchat": "Clear chat",
+  "key.shadowmenu.togglechat": "Hide or show chat",
+  "key.shadowmenu.zoom": "Zoom",
+  "key.shadowmenu.freelook": "Freelook",
+  "key.shadowmenu.fullbright": "Toggle fullbright"
+}

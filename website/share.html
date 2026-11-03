@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shared Pack · Shadow Client</title>
+  <meta name="description" content="Someone shared a Shadow Client mod pack with you. Open it in Shadow Client to get the same mods, resource packs and shaders.">
+  <meta name="theme-color" content="#08070e">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .share { width: min(760px, 100% - 32px); margin: 64px auto 0; }
+    .share-card { padding: 32px; border-radius: 24px; border: 1px solid var(--line);
+      background: radial-gradient(500px 240px at 50% 0%, rgba(155,123,255,0.2), transparent 70%), linear-gradient(180deg, var(--card-2), var(--bg-2)); }
+    .share h1 { font-size: clamp(30px, 5vw, 44px); margin: 16px 0 8px; overflow-wrap: anywhere; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; }
+    .tags span { font-size: 13px; font-weight: 650; padding: 5px 12px; border-radius: 6px; background: var(--card-2); border: 1px solid var(--line); color: var(--dim); }
+    .tags span:first-child { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .share .hero-actions { margin: 26px 0 10px; }
+    .hint { font-size: 14px; color: var(--faint); }
+    .hint strong { color: var(--dim); }
+    .items { margin-top: 26px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .items h2 { font: 600 15px var(--display); letter-spacing: 0; padding: 12px 18px; background: var(--card-2); border-bottom: 1px solid var(--line); }
+    .items ul { list-style: none; }
+    .items li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 18px; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .items li:last-child { border-bottom: none; }
+    .items li a { color: var(--text); overflow-wrap: anywhere; }
+    .items li a:hover { color: var(--accent-2); }
+    .items li em { font-style: normal; font-size: 12.5px; color: var(--faint); white-space: nowrap; }
+    .steps { margin-top: 26px; padding-left: 20px; color: var(--dim); display: grid; gap: 6px; font-size: 15px; }
+    .bad { text-align: center; }
+    .bad p { color: var(--dim); margin: 6px 0 22px; }
+    @media (max-width: 560px) { .share-card { padding: 22px 18px; } }
+  </style>
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html"><img src="images/logo.svg" alt="" width="34" height="34"><span>Shadow Client</span></a>
+      <a class="btn btn-ghost btn-sm" style="margin-left:auto" href="index.html#download">Download</a>
+    </div>
+  </header>
+
+  <main class="share">
+    <section class="share-card" id="pack" hidden>
+      <div class="eyebrow"><span class="dot"></span> Shared mod pack</div>
+      <h1 id="name"></h1>
+      <div class="tags" id="tags"></div>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" id="open" href="#">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" /></svg>
+          Open in Shadow Client
+        </a>
+        <button class="btn btn-ghost btn-lg" id="copy" type="button">Copy link</button>
+      </div>
+      <p class="hint">Shadow Client makes a new profile with this pack and shows you the download list before installing anything. Everything comes from Modrinth or CurseForge.</p>
+      <ol class="steps">
+        <li>Don't have Shadow Client? <a class="grad" href="index.html#download">Download it</a> (free, Windows 10 &amp; 11), open it once, then come back and press <strong>Open in Shadow Client</strong>.</li>
+        <li>Nothing happens? In Shadow Client go to <strong>Profiles → Add from share link</strong> and paste this page's link.</li>
+      </ol>
+      <div class="items" id="items" hidden><h2 id="items-title"></h2><ul id="list"></ul></div>
+    </section>
+
+    <section class="share-card bad" id="bad" hidden>
+      <h1>This link doesn't work</h1>
+      <p>It may have been cut off when it was sent. Ask for the link again, or get Shadow Client below.</p>
+      <a class="btn btn-primary btn-lg" href="index.html#download">Download Shadow Client</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="brand"><img src="images/logo.svg" alt="" width="26" height="26"><span>Shadow Client</span></div>
+      <p><a href="https://github.com/Jaylenninja14/shadow-client">GitHub</a> · Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+    </div>
+  </footer>
+
+  <script>
+    // The pack lives in the part after "#" (deflate-compressed JSON, base64url), so this page never
+    // sends it anywhere. Same format and limits as crates/pc-core/src/share.rs.
+    (async () => {
+      const code = location.hash.slice(1).trim();
+      const show = (id) => { document.getElementById(id).hidden = false; };
+      const LOADERS = { vanilla: "Vanilla", fabric: "Fabric", quilt: "Quilt", forge: "Forge", neoforge: "NeoForge" };
+      const KINDS = { m: ["mod", "mods"], r: ["resource pack", "resource packs"], s: ["shader", "shaders"] };
+      const id = /^[A-Za-z0-9]{1,16}$/;
+
+      async function read() {
+        if (!/^[A-Za-z0-9_-]{8,}$/.test(code) || !("DecompressionStream" in window)) return null;
+        const bin = atob(code.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((code.length + 3) % 4));
+        const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
+        const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+        const reader = stream.getReader();
+        const parts = [];
+        let size = 0;
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          size += value.length;
+          if (size > 256 * 1024) return null;
+          parts.push(value);
+        }
+        const pack = JSON.parse(await new Blob(parts).text());
+        if (pack.f !== 1 || typeof pack.n !== "string" || typeof pack.m !== "string" || !LOADERS[pack.l] || !Array.isArray(pack.i) || pack.i.length > 400) return null;
+        const sourceOk = (i) => i.s === undefined || (i.s === "c" && /^\d+$/.test(i.p) && /^\d+$/.test(i.v));
+        if (!pack.i.every((i) => KINDS[i.k] && id.test(i.p) && id.test(i.v) && sourceOk(i) && typeof i.t === "string")) return null;
+        return pack;
+      }
+
+      let pack = null;
+      try { pack = await read(); } catch { pack = null; }
+      if (!pack) { show("bad"); return; }
+
+      const name = pack.n.trim() || "Shared pack";
+      document.title = `${name} · Shadow Client`;
+      document.getElementById("name").textContent = name;
+      const tags = document.getElementById("tags");
+      const tag = (text) => { const s = document.createElement("span"); s.textContent = text; tags.append(s); };
+      tag(`Minecraft ${pack.m}`);
+      tag(LOADERS[pack.l]);
+      for (const k of Object.keys(KINDS)) {
+        const n = pack.i.filter((i) => i.k === k).length;
+        if (n) tag(`${n} ${KINDS[k][n === 1 ? 0 : 1]}`);
+      }
+
+      document.getElementById("open").href = `shadowclient://share/${code}`;
+      const copy = document.getElementById("copy");
+      copy.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(location.href); copy.textContent = "Copied"; }
+        catch { copy.textContent = "Copy the address bar"; }
+        setTimeout(() => { copy.textContent = "Copy link"; }, 2000);
+      });
+
+      if (pack.i.length) {
+        document.getElementById("items-title").textContent = `What's in it (${pack.i.length})`;
+        const list = document.getElementById("list");
+        for (const i of pack.i) {
+          const li = document.createElement("li");
+          let a;
+          if (i.s === "c") {
+            a = document.createElement("span");
+          } else {
+            a = document.createElement("a");
+            a.href = `https://modrinth.com/project/${i.p}/version/${i.v}`;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+          }
+          a.textContent = i.t.slice(0, 80) || i.p;
+          const em = document.createElement("em");
+          em.textContent = `${KINDS[i.k][0]} · ${i.s === "c" ? "CurseForge" : "Modrinth"}`;
+          li.append(a, em);
+          list.append(li);
+        }
+        show("items");
+      }
+      show("pack");
+    })();
+  </script>
+</body>
+</html>

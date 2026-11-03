@@ -1,0 +1,100 @@
+{
+  "_comment": "Built-in mods are installed automatically into Fabric/Quilt profiles. Pinned files are embedded in the launcher (licenses: THIRD_PARTY_NOTICES.md); other Minecraft versions are resolved from Modrinth through the normal compatibility checks. 'selfMade' mods are Shadow Client's own (source in client-mod/) and only exist for their pinned versions.",
+  "mods": [
+    {
+      "key": "marlowcrystal",
+      "name": "Marlow's Crystal Optimizer",
+      "modId": "marlowcrystal",
+      "modrinthProjectId": "ozpC8eDC",
+      "modrinthSlug": "marlow-crystal-optimizer",
+      "license": "MIT",
+      "authors": [
+        "Bram",
+        "Marlow"
+      ],
+      "category": "pvp",
+      "summary": "Removes the client-side wait after breaking an end crystal before the entity disappears.",
+      "note": null,
+      "pinned": [
+        {
+          "gameVersion": "1.21.11",
+          "loaders": [
+            "fabric"
+          ],
+          "modrinthVersionId": "Wzw6RsOc",
+          "fileName": "marlows-crystal-optimizer-2.0.0+mc1.21.11.jar",
+          "embedded": "marlows-crystal-optimizer-2.0.0+mc1.21.11.jar",
+          "sha1": "ff4b0bbfaca3ba35e473b1cc9a1ea5b52cb479f8",
+          "sha512": "7a5590d3ceaebec3b8155afb0ef48e277a2aa987e8503bc2aa78ad7993dc43bc8334c8a09cc9cd54277a34ca771347c090531f242f9036048d17b7b82b6b5747",
+          "size": 153760,
+          "requires": [
+            "P7dR8mSH"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "alwaysshield",
+      "name": "Always Shield",
+      "modId": "alwaysshield",
+      "modrinthProjectId": "f5J5N4a3",
+      "modrinthSlug": "always-shield",
+      "license": "MIT",
+      "authors": [
+        "JustMili"
+      ],
+      "category": "pvp",
+      "summary": "Removes the shield's raise delay so blocking starts the moment you right-click.",
+      "note": "Modrinth lists Always Shield as a server-side mod. In this client it takes effect in singleplayer and LAN worlds you host; on multiplayer servers the server decides shield timing.",
+      "pinned": [
+        {
+          "gameVersion": "1.21.11",
+          "loaders": [
+            "fabric",
+            "quilt"
+          ],
+          "modrinthVersionId": "cdynsdIj",
+          "fileName": "AlwaysShield-1.2.0+mc1.21.11-Fabric.jar",
+          "embedded": "AlwaysShield-1.2.0+mc1.21.11-Fabric.jar",
+          "sha1": "ee2117eb13caf72d4d58f95c80bdf2d1b1a5fe01",
+          "sha512": "82209a9bec18878a9b368bb409a9d5fb3b4ef2e078e9a2ca50a97f108ad42d604271dded72d1c821bb45194b3e4f9e47a261522ef11ff9c016eee1295f6e715d",
+          "size": 85347,
+          "requires": []
+        }
+      ]
+    },
+    {
+      "key": "shadowmenu",
+      "name": "Shadow Menu",
+      "modId": "shadowmenu",
+      "modrinthProjectId": "shadowmenu",
+      "modrinthSlug": "shadowmenu",
+      "license": "MIT",
+      "authors": [
+        "Shadow Client"
+      ],
+      "category": "client",
+      "summary": "Shadow Client's in-game client: Lunar-style mod menu (Right Shift), its own movable HUD with a drag-and-drop editor, zoom, freelook, motion blur, PvP, Hypixel and performance modules, and the Shadow Client title screen.",
+      "note": null,
+      "selfMade": true,
+      "pinned": [
+        {
+          "gameVersion": "1.21.11",
+          "loaders": [
+            "fabric",
+            "quilt"
+          ],
+          "modrinthVersionId": "shadowmenu-2.0.1",
+          "fileName": "shadow-menu-2.0.1.jar",
+          "embedded": "shadow-menu-2.0.1.jar",
+          "sha1": "84b921276bc325163fb5b26ba2f87618dc8ab155",
+          "sha512": "6ef7cad490a830dc2502591689c1b8d1d166b80166007ff8884c3bf57bf265abeb7012fa1cca71fcc58afce4027622aec1a8161b86e9d60418b9f304551323fd",
+          "size": 1527924,
+          "requires": [
+            "P7dR8mSH"
+          ]
+        }
+      ]
+    }
+  ]
+}
