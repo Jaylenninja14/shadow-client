@@ -1,12 +1,450 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shadow Client</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shadow Client: Minecraft Client for Windows</title>
+  <meta name="description" content="Shadow Client is a free, lightweight Minecraft launcher for Windows with a Lunar-style in-game mod menu, PvP and HUD mods, FPS tools, Modrinth and CurseForge, and Bedrock support.">
+  <meta property="og:title" content="Shadow Client">
+  <meta property="og:description" content="A fast, lightweight Minecraft client with a Lunar-style mod menu. Free for Windows.">
+  <meta property="og:image" content="images/og.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shadowclient.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shadow Client: Minecraft Client for Windows">
+  <meta name="twitter:description" content="A fast, lightweight Minecraft client with a Lunar-style mod menu. Free for Windows.">
+  <meta name="twitter:image" content="images/og.png">
+  <meta name="theme-color" content="#08070e">
+  <meta name="keywords" content="Minecraft, launcher, client, PvP, HUD, mods, Lunar, Windows, free, modpack, Modrinth, CurseForge">
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Shadow Client",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows 10, Windows 11",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "A lightweight Minecraft launcher with a Lunar-style mod menu, PvP and HUD mods, FPS tools, Modrinth and CurseForge support.",
+    "screenshot": "images/launcher-home.png",
+    "softwareVersion": "0.4.3",
+    "datePublished": "2026-10-30",
+    "author": {
+      "@type": "Organization",
+      "name": "Shadow Client"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><img src="images/logo.svg" alt="Shadow Client logo" width="34" height="34"><span>Shadow Client</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#mod-menu">Mod menu</a>
+        <a href="#bedrock">Bedrock</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#compare">Compare</a>
+        <a href="#whats-new">What's new</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="mobile-menu-toggle btn btn-ghost btn-sm" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm" href="#download">Download</a>
+    </div>
+    <div class="mobile-nav" hidden>
+      <nav aria-label="Mobile navigation">
+        <a href="#features">Features</a>
+        <a href="#mod-menu">Mod menu</a>
+        <a href="#bedrock">Bedrock</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#compare">Compare</a>
+        <a href="#whats-new">What's new</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div id="main-content"></div>
+    <!-- ============================================================ hero -->
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="dot"></span> Free for Windows 10 &amp; 11</div>
+        <h1>Play smoother.<br><span class="grad">Fight sharper.</span></h1>
+        <p class="lead">Shadow Client is a lightweight Minecraft launcher with its own Lunar-style client built in. Press <kbd>Right Shift</kbd> in game for 260+ HUD, PvP, Hypixel, visual and performance modules, all made by Shadow Client. Java and Bedrock in one app.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" data-download="setup" href="https://github.com/Jaylenninja14/shadow-client/releases/latest/download/Shadow-Client-Setup.exe">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" /></svg>
+            Download for Windows
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#screenshots">See it in action</a>
+        </div>
+        <p class="meta"><span data-size="setup">Installer</span> · 64-bit · No account needed to install</p>
+      </div>
+      <div class="hero-shot">
+        <div class="window">
+          <div class="window-bar"><span></span><span></span><span></span><em>Shadow Client</em></div>
+          <img src="images/launcher-home.png" alt="Shadow Client's home screen with profiles and the PLAY button" width="1280" height="800" loading="eager">
+        </div>
+        <div class="float-card">
+          <img src="images/ingame-menu.png" alt="The in-game mod menu with module cards" width="1600" height="900" loading="eager">
+          <span>In game · Right Shift</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip wrap" aria-label="Highlights">
+      <div><strong>260+</strong><span>in-game modules, all our own</span></div>
+      <div><strong>Java + Bedrock</strong><span>one launcher</span></div>
+      <div><strong>Modrinth &amp; CurseForge</strong><span>with compatibility checks</span></div>
+      <div><strong>Zero</strong><span>telemetry or ads</span></div>
+    </section>
+
+    <!-- ============================================================ features -->
+    <section id="features" class="section wrap">
+      <h2>Everything a PvP client needs. <span class="dim">Nothing it doesn't.</span></h2>
+      <p class="section-lead">Built to launch fast and stay out of your way, even on older PCs.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 9h4M7 13h7M15 9h2"/></svg></div>
+          <h3>Lunar-style mod menu</h3>
+          <p>Right Shift opens a card grid with categories, search and favourites. Every module has its own settings page with sliders, switches, colour pickers and keybinds. Pick a theme and accent colour.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 18V6m4 12V10m4 8V4m4 14v-6m4 6V8"/></svg></div>
+          <h3>HUD that's yours</h3>
+          <p>22 HUD modules: FPS, CPS, keystrokes, ping, armor, potions, coordinates, compass, reach, combo, scoreboard and more. Drag, snap and resize them in the HUD editor, and style each one: colours, chroma, backgrounds, borders, brackets.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M14.5 17.5L3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2"/></svg></div>
+          <h3>Built for PvP</h3>
+          <p>Zoom, freelook, a custom crosshair, hit colour, motion blur, low fire and shield, counters for totems, gapples, pearls and 25 more items, cooldowns, a Target HUD with totem pops, kills and K/D, waypoints, Auto Text hotkeys and 12 PvP alerts.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h3>FPS Boost in one click</h3>
+          <p>Switch the heaviest settings off in one click, and switch FPS Boost off to get your exact settings back. Presets tuned to your PC's RAM, CPU and GPU.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg></div>
+          <h3>Hypixel mods</h3>
+          <p>AutoGG, AutoGLHF, AutoTip, AutoBoop, Nick Hider, chat heads and ping in tab, right in the mod menu's Hypixel category.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7.5L12 12l8.7-4.5M12 22V12"/></svg></div>
+          <h3>Mods &amp; modpacks</h3>
+          <p>Browse Modrinth (and CurseForge with a key). Shadow Client checks versions, loaders, dependencies and known conflicts before anything is installed. Share your pack with a link: friends click it and get the same mods.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h.01M15 9h.01M8.5 15c1 1 2.2 1.5 3.5 1.5s2.5-.5 3.5-1.5"/></svg></div>
+          <h3>Skins &amp; profiles</h3>
+          <p>A skin editor and library, separate profiles for every version and mod setup, and your worlds kept safe when you change versions.</p>
+        </article>
+        <article class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Safe by design</h3>
+          <p>Every download is checked against its published hash. Sign-in happens on microsoft.com and tokens stay encrypted on your PC. No telemetry.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================ mod menu -->
+    <section id="mod-menu" class="section wrap split">
+      <div class="split-shot">
+        <img src="images/ingame-menu.png" alt="Shadow Client's in-game mod menu" width="1600" height="900" loading="lazy">
+      </div>
+      <div class="split-copy">
+        <div class="eyebrow">In game</div>
+        <h2>One key. <span class="grad">Every module.</span></h2>
+        <p>Press <kbd>Right Shift</kbd> in game or on the Shadow Client title screen. Categories on the left, search at the top (just start typing), <em>Edit HUD</em> one click away, and a card for every module with an animated on/off bar. Everything in it is Shadow Client's own: no AxolotlClient, no Mod Menu, no other client mods needed.</p>
+        <div class="chips">
+          <span>All</span><span>Favourites</span><span>New</span><span>HUD</span><span>PvP</span><span>Hypixel</span><span>Visual</span><span>Performance</span><span>Game</span><span>Mods</span>
+        </div>
+        <ul class="ticks">
+          <li>A settings page for every module: sliders, switches, colour pickers with chroma, keybinds</li>
+          <li>Dark, Midnight, Black or Light theme in your accent colour, with smooth animations</li>
+          <li>A drag-and-drop HUD editor that snaps modules to edges, the centre and each other</li>
+          <li>The installed mods list, and graphics, render distance, FPS Boost and more without leaving the game</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ bedrock -->
+    <section id="bedrock" class="section wrap split reverse">
+      <div class="split-shot">
+        <img src="images/launcher-bedrock-menu.png" alt="The Bedrock mod menu in Shadow Client" width="1280" height="800" loading="lazy">
+      </div>
+      <div class="split-copy">
+        <div class="eyebrow">Bedrock Edition</div>
+        <h2>Bedrock gets a <span class="grad">mod menu</span> too.</h2>
+        <p>Start Minecraft Bedrock from Shadow Client and tune it with the same card layout: 89 modules across Performance, PvP, Visual, HUD, Audio, Game and Privacy. VSync, a framerate cap, frame pacing, sensitivity, FOV, hurt cam, auto sprint, an 11-slider sound mixer, a custom crosshair in any colour, enchant glint colours, clear Nether portals, no weather, chat font and colours, clean stained glass and the Shadow background.</p>
+        <ul class="ticks">
+          <li>Bedrock's own settings, changed safely with an "Undo all"</li>
+          <li>Crosshair, overlay and glass tweaks in a pack Shadow Client builds for you</li>
+          <li>Import .mcpack and .mcaddon files, or install packs from CurseForge</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================ screenshots -->
+    <section id="screenshots" class="section wrap">
+      <h2>Screenshots</h2>
+      <p class="section-lead">The real app, no mock-ups. Click to enlarge.</p>
+      <div class="gallery">
+        <button class="shot" data-full="images/launcher-home.png"><img src="images/launcher-home.png" alt="Home" loading="lazy"><span>Home and profiles</span></button>
+        <button class="shot" data-full="images/ingame-menu.png"><img src="images/ingame-menu.png" alt="In-game mod menu" loading="lazy"><span>In-game mod menu</span></button>
+        <button class="shot" data-full="images/ingame-settings.png"><img src="images/ingame-settings.png" alt="A module's settings page with sliders, switches and colours" loading="lazy"><span>Module settings</span></button>
+        <button class="shot" data-full="images/launcher-features.png"><img src="images/launcher-features.png" alt="Features page" loading="lazy"><span>HUD and hotkeys</span></button>
+        <button class="shot" data-full="images/ingame-hud-editor.png"><img src="images/ingame-hud-editor.png" alt="The HUD editor with snapping guides" loading="lazy"><span>HUD editor</span></button>
+        <button class="shot" data-full="images/ingame-title.png"><img src="images/ingame-title.png" alt="The Shadow Client title screen in game" loading="lazy"><span>Shadow Client title screen</span></button>
+        <button class="shot" data-full="images/launcher-mods.png"><img src="images/launcher-mods.png" alt="Mods page" loading="lazy"><span>Mods</span></button>
+        <button class="shot" data-full="images/ingame-hud.png"><img src="images/ingame-hud.png" alt="The HUD in game: FPS, CPS, keystrokes, armor, potions and chat heads" loading="lazy"><span>HUD in game</span></button>
+      </div>
+    </section>
+
+    <!-- ============================================================ download -->
+    <section id="download" class="section wrap">
+      <div class="download">
+        <img src="images/logo.svg" alt="" width="84" height="84">
+        <h2>Get Shadow Client</h2>
+        <p class="section-lead">Version <span data-version>0.1.0</span> · Windows 10 and 11, 64-bit</p>
+        <div class="dl-grid">
+          <a class="dl" data-download="setup" href="https://github.com/Jaylenninja14/shadow-client/releases/latest/download/Shadow-Client-Setup.exe">
+            <strong>Installer</strong><span>Recommended · .exe</span><em data-size="setup"></em>
+          </a>
+          <a class="dl" data-download="msi" href="https://github.com/Jaylenninja14/shadow-client/releases/latest/download/Shadow-Client.msi">
+            <strong>MSI package</strong><span>For managed PCs · .msi</span><em data-size="msi"></em>
+          </a>
+          <a class="dl" data-download="portable" href="https://github.com/Jaylenninja14/shadow-client/releases/latest/download/Shadow-Client-Portable.zip">
+            <strong>Portable</strong><span>No install, runs from a folder · .zip</span><em data-size="portable"></em>
+          </a>
+        </div>
+        <details class="hashes">
+          <summary>SHA-256 checksums</summary>
+          <ul data-hashes><li>Shown when the files are published.</li></ul>
+          <button class="copy-hashes btn btn-ghost btn-sm" aria-label="Copy all checksums to clipboard" style="display:none; margin-top: 12px;">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy checksums
+          </button>
+        </details>
+        <p class="note">Windows may show "Windows protected your PC" because the installer isn't code-signed yet. Click <em>More info</em> → <em>Run anyway</em>.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================ compare -->
+    <section id="compare" class="section wrap">
+      <h2>Shadow Client vs the official launcher</h2>
+      <p class="section-lead">Both are free. Here's what Shadow Client adds.</p>
+      <div class="table-wrap">
+        <table class="compare">
+          <thead><tr><th></th><th>Shadow Client</th><th>Official launcher</th></tr></thead>
+          <tbody>
+            <tr><td>Every Java version, vanilla and Fabric</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>In-game mod menu (Right Shift) with 260+ modules and a HUD editor</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>PvP HUD: item counters, cooldowns, Target HUD, alerts</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Browse and install mods and modpacks, with compatibility checks</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Performance presets based on your PC</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Server list with live ping and one-click join</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Bedrock mod menu, world backups and packs from CurseForge</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Screenshot gallery and a crash helper that explains crashes</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Microsoft sign-in for online play</td><td class="part">Through the official launcher for now</td><td class="yes">Yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================================================ changelog -->
+    <section id="whats-new" class="section wrap">
+      <h2>What's new</h2>
+      <div class="changelog">
+        <article>
+          <h3>Shadow Client 0.4.3 <span>November 2, 2026</span></h3>
+          <ul>
+            <li><strong>A fresher launcher:</strong> pick your game from two tiles at the top of the sidebar: <strong>Java Edition</strong> (with the profile you'll play) or <strong>Bedrock Edition</strong>. The rest of the sidebar is grouped into Play, Customize and Launcher.</li>
+            <li><strong>Search everything with Ctrl+K:</strong> the search box at the top finds pages, profiles, your installed mods, Bedrock modules and settings. Pick a result and it opens right there, already filtered (for example a Bedrock module in the mod menu, or a mod in your list). It can also search Modrinth.</li>
+            <li><strong>Easier Settings:</strong> sections on the left with a short description, a box that searches every setting, and a bar at the bottom that only shows up when you have changes to save.</li>
+            <li><strong>Smoother animations:</strong> the highlight slides between pages and tabs, cards rise in when a page opens, and windows and messages pop in gently. If Windows is set to show fewer animations, Shadow Client turns them off.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.4.2 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>9 new Bedrock modules</strong> (Bedrock page → Mod menu, 89 in all):</li>
+            <li><strong>Max Framerate</strong> (Performance): cap Bedrock at 30–240 FPS to save power and heat, or leave it unlimited.</li>
+            <li><strong>No Weather Effects</strong> (Performance): hides falling rain and snow so you can see.</li>
+            <li><strong>Clear Nether Portals</strong> (Visual): see through portals, with just a light purple tint.</li>
+            <li><strong>Enchant Glint Colour</strong> (Visual): purple, red, aqua, gold or green shimmer on enchanted items and armour, or none.</li>
+            <li><strong>UI Profile</strong> (HUD): Classic or Pocket layout.</li>
+            <li><strong>Chat Font, Chat Font Size, Chat Text Colour and Mention Colour</strong> (HUD): Minecraft's font or Noto Sans, bigger or smaller chat, and the colours of chat and of messages that mention you.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.4.1 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>Only your Shadow profile in the official launcher:</strong> when Shadow Client opens the Minecraft Launcher with a profile, that profile is now the only installation next to PLAY. Your other installations are put aside, not deleted, and old Shadow Client entries are cleared out. To get them back, turn off <strong>Only show the profile you open</strong> in Settings → General and press Save.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.4.0 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>Share your mod pack:</strong> on Profiles, press <strong>Share</strong> on a profile and send the link. Your friend clicks it, presses <strong>Open in Shadow Client</strong>, and gets a new profile with the same Minecraft version, loader, mods, resource packs and shaders, downloaded from Modrinth and CurseForge. They see the full list before anything installs. Nothing is uploaded: the pack is inside the link. You can also paste a link in Profiles → <strong>Add from share link</strong>.</li>
+            <li><strong>Add an existing profile by copying it:</strong> Profiles → <strong>Add existing profile</strong> (and the first-start screen) now copies the profile's mods, settings and config into a new Shadow Client profile with the same name. Your original folder isn't changed, and the copy gets the built-in mod menu like any other profile.</li>
+            <li><strong>The MSI version updates itself:</strong> copies installed with Shadow-Client.msi now update from the &quot;Update needed&quot; message too, through Windows Installer (Windows may ask for admin rights if it was installed for all users). MSI copies on 0.3.2 or older need this one update installed by hand first.</li>
+            <li>Mods you added by hand are no longer downloaded twice when the launcher adds the built-in mods (for example Fabric API).</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.3.2 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>Fixed a crash on the title screen:</strong> going back to the title screen without a world (for example leaving Create New World when you have no worlds yet) could close the game with &quot;The current screen has not been correctly initialised&quot;. The in-game client is now Shadow Menu 2.0.1; profiles get it the next time you press PLAY.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.3.1 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>Updates through the website:</strong> on copies that can't update themselves (portable and MSI), <strong>Download update</strong> now opens the Shadow Client website's download section instead of the GitHub release page. Installed copies still update in one click.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.3.0 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>All our own:</strong> the in-game client (Shadow Menu 2.0) now does the HUD, zoom, freelook, motion blur and every other client module itself. AxolotlClient, FancyMenu, Mod Menu, Chat Heads, AppleSkin and the ping-in-tab mod are no longer needed or installed.</li>
+            <li><strong>New mod menu (Right Shift):</strong> categories, type-to-search, animated cards, and a settings page for every module with sliders, switches, colour pickers (with chroma) and keybinds. Dark, Midnight, Black or Light theme in your accent colour.</li>
+            <li><strong>HUD editor:</strong> 22 HUD modules you can drag, snap and resize, each with its own colours, background, border, text shadow and brackets. The scoreboard and boss bar can move too.</li>
+            <li><strong>Shadow Client title screen</strong>, built in: the Shadow background, Singleplayer, Multiplayer, the mod menu, Options and a list of your mods.</li>
+            <li><strong>Also new:</strong> custom crosshair, chat heads, a saturation display, ping numbers in tab, TNT timer, scrollable tooltips, Nick Hider, AutoGLHF and AutoBoop, and copying screenshots to the clipboard.</li>
+            <li><strong>Features page:</strong> shows what the built-in menu does, and offers to remove AxolotlClient and the other mods it replaces if a profile still has them. The HUD chooser now sets up Shadow Menu's own HUD.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.2.2 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>Update needed:</strong> Shadow Client now tells you as soon as a new version is out, with a message when it starts and a bar at the top until you update. It checks again every 15 minutes while it's open.</li>
+            <li><strong>One-click update:</strong> press Update now and Shadow Client downloads the new version, checks the file against its published SHA-256, installs it and opens again. Portable and MSI copies get a link to the download instead.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.2.1 <span>November 1, 2026</span></h3>
+          <ul>
+            <li><strong>A new look:</strong> the launcher now matches this site, with a deep purple-black theme, glowing buttons and rounded cards. It follows your accent colour, and the light theme is updated too.</li>
+            <li><strong>Home:</strong> the Shadow background behind your profile, a bigger PLAY button, stat tiles and quick links to Mods, Features, Servers, Screenshots and the game folder.</li>
+            <li>A sidebar grouped into Play, Customize and Launcher, pill-style tabs and an account chip in the top bar.</li>
+            <li><strong>Open official launcher</strong> now adds your profile and its mods to the official Minecraft Launcher, so you can play it there with your Microsoft account.</li>
+            <li>Fixed: a profile added to the official launcher could fail with "Unable to prepare assets for download". Using Open official launcher again repairs it.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.2.0 <span>October 31, 2026</span></h3>
+          <ul>
+            <li><strong>Servers page:</strong> live status (players, ping, version, MOTD) for Java and Bedrock servers, and a Join button that starts the game straight into the server.</li>
+            <li><strong>Screenshot gallery</strong> for each profile, and a <strong>crash helper</strong> that names the likely cause (out of memory, a broken mod, the graphics driver…).</li>
+            <li><strong>Update notices</strong> when a new Shadow Client is released.</li>
+            <li><strong>Bedrock worlds:</strong> one-click backups as .mcworld files, and restoring a backup as a new copy.</li>
+            <li>Mod menu: waypoints, Auto Text hotkeys, kills and K/D, hit and kill sounds, 12 PvP alerts, 15 more item counters, Compact Chat, smaller held items, third person back only, motion blur strength and more.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Shadow Client 0.1.0 <span>October 30, 2026</span></h3>
+          <ul>
+            <li>First release: the launcher, the Right Shift mod menu, the Shadow HUD, the Bedrock mod menu and the Shadow background.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================ faq -->
+    <section id="faq" class="section wrap faq">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Is Shadow Client free?</summary>
+        <p>Yes. No ads, no account of its own, no telemetry.</p>
+      </details>
+      <details>
+        <summary>Can I play on servers?</summary>
+        <p>Yes. Online play needs your Microsoft account. You can sign in inside Shadow Client once its Microsoft app registration is set up (Settings → Accounts &amp; services). Or use Profiles → <em>Add to official launcher</em>: your Shadow profile, with its mods and mod menu, then appears in the official Minecraft Launcher and plays online with your normal sign-in. It's the only installation shown there; your others are put aside and come back when you turn off <em>Only show the profile you open</em> in Settings.</p>
+      </details>
+      <details>
+        <summary>Will I get banned for using it?</summary>
+        <p>Shadow Client's modules are the visual and quality-of-life kind found in Lunar and Feather: HUD, zoom, freelook, toggle sprint, FPS settings. It has no reach, auto-clicker or other cheats. Some servers restrict certain mods (for example freelook), so check the rules of the server you play on.</p>
+      </details>
+      <details>
+        <summary>Which Minecraft versions work?</summary>
+        <p>Any Java Edition version can be installed and played. The built-in mod menu and its modules are made for 1.21.11 with Fabric; other versions get mods from Modrinth with compatibility checks.</p>
+      </details>
+      <details>
+        <summary>Does it mod Minecraft Bedrock?</summary>
+        <p>Bedrock can't load Java-style mods. Shadow Client starts it, changes Bedrock's own settings, and builds a small resource pack for things like the crosshair. That's what the Bedrock mod menu does.</p>
+      </details>
+      <details>
+        <summary>How do I share my mods with a friend?</summary>
+        <p>On <em>Profiles</em>, press <em>Share</em> on a profile and send the link. Your friend opens it, presses <em>Open in Shadow Client</em>, and gets a new profile with the same Minecraft version, loader, mods, resource packs and shaders, downloaded from Modrinth and CurseForge. They see the full list before anything installs. Nothing is uploaded: the pack is inside the link. Mods you added by hand that aren't on Modrinth or CurseForge are left out.</p>
+      </details>
+      <details>
+        <summary>How do I join a server in one click?</summary>
+        <p>Open <em>Servers</em>, add the server's address, and press <em>Join</em>. Shadow Client starts your selected profile and connects as soon as the game is up. Bedrock servers have a Join button too.</p>
+      </details>
+      <details>
+        <summary>Minecraft crashed. What now?</summary>
+        <p>Shadow Client reads the crash report and tells you the likely cause on the Home page, for example a mod that doesn't fit your version, running out of memory, or the graphics driver. It names the mod Fabric suspects when there is one.</p>
+      </details>
+      <details>
+        <summary>How do I update?</summary>
+        <p>From 0.2.2, Shadow Client tells you when a new version is out ("Update needed") and updates itself when you press Update now; your profiles, worlds and settings stay. From 0.4.0 the MSI version updates itself too. Older versions show a bar at the top: download the new installer and run it over your current version. The portable version: download the new zip and replace the old folder's files (keep its data folder).</p>
+      </details>
+      <details>
+        <summary>Will it touch my existing .minecraft folder?</summary>
+        <p>No. Shadow Client keeps its own profiles and game files. It reads your official installation only when you import from it (Profiles → <em>Add existing profile</em> copies its mods and settings into a new Shadow Client profile with the same name; the original stays as it is), and adds a profile to the official launcher only when you ask (its profile list is backed up first).</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="brand"><img src="images/logo.svg" alt="" width="26" height="26"><span>Shadow Client</span></div>
+      <p><a href="https://github.com/Jaylenninja14/shadow-client">GitHub</a> · <a href="https://github.com/Jaylenninja14/shadow-client/releases">Releases</a> · Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <img alt="">
+    <div class="lightbox-nav">
+      <button class="lightbox-prev" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="lightbox-next" aria-label="Next image">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" aria-label="Back to top" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- Toast notification container -->
+  <div class="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="main.js"></script>
+</body>
 </html>
