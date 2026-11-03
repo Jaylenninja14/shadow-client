@@ -253,3 +253,95 @@ if ("IntersectionObserver" in window) {
     imageObserver.observe(img);
   });
 }
+
+// ============================================================ Ban hammer animation
+function triggerBanHammer() {
+  const container = document.querySelector(".ban-hammer-container");
+  const feathersContainer = container.querySelector(".feathers");
+
+  // Clear previous feathers
+  feathersContainer.innerHTML = "";
+
+  // Create multiple feathers with random positions and rotations
+  for (let i = 0; i < 20; i++) {
+    const feather = document.createElement("div");
+    feather.className = "feather";
+
+    // Random starting position around the impact point
+    const angle = (Math.PI * 2 * i) / 20;
+    const radius = 50 + Math.random() * 50;
+    const startX = 50 + Math.cos(angle) * radius;
+    const startY = 50 + Math.sin(angle) * radius;
+
+    feather.style.left = `${startX}%`;
+    feather.style.top = `${startY}%`;
+    feather.style.setProperty("--drift", `${(Math.random() - 0.5) * 200}px`);
+    feather.style.setProperty("--rotate", `${Math.random() * 720 - 360}deg`);
+    feather.style.animationDelay = `${1 + Math.random() * 0.3}s`;
+
+    feathersContainer.appendChild(feather);
+  }
+
+  // Show the animation
+  container.hidden = false;
+
+  // Play impact sound (using Web Audio API to create a "thud" sound)
+  playMaceSound();
+
+  // Hide after animation completes
+  setTimeout(() => {
+    container.hidden = true;
+  }, 4000);
+}
+
+function playMaceSound() {
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Create a "thud" sound effect
+    const duration = 0.5;
+    const sampleRate = audioContext.sampleRate;
+    const buffer = audioContext.createBuffer(1, sampleRate * duration, sampleRate);
+    const data = buffer.getChannelData(0);
+
+    // Generate a deep impact sound
+    for (let i = 0; i < buffer.length; i++) {
+      const t = i / sampleRate;
+      // Combination of low frequencies for that heavy mace impact
+      const freq1 = Math.sin(2 * Math.PI * 80 * t); // Low rumble
+      const freq2 = Math.sin(2 * Math.PI * 150 * t); // Mid-low impact
+      const noise = (Math.random() * 2 - 1) * 0.3; // Some noise for texture
+
+      // Exponential decay for the impact fade
+      const envelope = Math.exp(-t * 8);
+
+      data[i] = (freq1 * 0.5 + freq2 * 0.3 + noise) * envelope * 0.3;
+    }
+
+    const source = audioContext.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioContext.destination);
+    source.start();
+
+  } catch (e) {
+    console.log("Audio not available");
+  }
+}
+
+// Easter egg: Press Shift+B+H together to trigger ban hammer
+let keys = {};
+document.addEventListener("keydown", (e) => {
+  keys[e.key.toLowerCase()] = true;
+
+  // Check for Shift + B + H
+  if (e.shiftKey && keys["b"] && keys["h"]) {
+    triggerBanHammer();
+  }
+});
+
+document.addEventListener("keyup", (e) => {
+  keys[e.key.toLowerCase()] = false;
+});
+
+// You can also trigger it programmatically:
+// window.triggerBanHammer = triggerBanHammer;
