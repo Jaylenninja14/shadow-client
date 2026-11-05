@@ -277,6 +277,15 @@
       <h2>What's new</h2>
       <div class="changelog">
         <article>
+          <h3>Shadow Client 0.4.4 <span>November 5, 2026</span></h3>
+          <ul>
+            <li>Removed the website's BANNED hammer Easter egg and its keyboard trigger.</li>
+            <li>Added the Shadow Menu Recorder module for silent MP4 gameplay recordings. The recorder follows Minecraft's frame rate setting, up to 240 FPS.</li>
+            <li>Fixed Minecraft 1.21.11 compatibility issues in the multiplayer feature code.</li>
+          </ul>
+        </article>
+
+        <article>
           <h3>Shadow Client 0.4.3 <span>November 2, 2026</span></h3>
           <ul>
             <li><strong>A fresher launcher:</strong> pick your game from two tiles at the top of the sidebar: <strong>Java Edition</strong> (with the profile you'll play) or <strong>Bedrock Edition</strong>. The rest of the sidebar is grouped into Play, Customize and Launcher.</li>
@@ -383,10 +392,6 @@
         <p>Yes. Online play needs your Microsoft account. You can sign in inside Shadow Client once its Microsoft app registration is set up (Settings → Accounts &amp; services). Or use Profiles → <em>Add to official launcher</em>: your Shadow profile, with its mods and mod menu, then appears in the official Minecraft Launcher and plays online with your normal sign-in. It's the only installation shown there; your others are put aside and come back when you turn off <em>Only show the profile you open</em> in Settings.</p>
       </details>
       <details>
-        <summary>Will I get banned for using it?</summary>
-        <p>Shadow Client's modules are the visual and quality-of-life kind found in Lunar and Feather: HUD, zoom, freelook, toggle sprint, FPS settings. It has no reach, auto-clicker or other cheats. Some servers restrict certain mods (for example freelook), so check the rules of the server you play on.</p>
-      </details>
-      <details>
         <summary>Which Minecraft versions work?</summary>
         <p>Any Java Edition version can be installed and played. The built-in mod menu and its modules are made for 1.21.11 with Fabric; other versions get mods from Modrinth with compatibility checks.</p>
       </details>
@@ -444,28 +449,6 @@
 
   <!-- Toast notification container -->
   <div class="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
-
-  <!-- Ban hammer animation container -->
-  <div class="ban-hammer-container" hidden>
-    <div class="ban-hammer">
-      <svg viewBox="0 0 100 100" class="mace-icon">
-        <!-- Mace handle -->
-        <rect x="46" y="40" width="8" height="45" fill="#8B4513" rx="2"/>
-        <!-- Mace head -->
-        <circle cx="50" cy="30" r="18" fill="#4a4a4a"/>
-        <circle cx="50" cy="30" r="14" fill="#666"/>
-        <!-- Spikes -->
-        <circle cx="50" cy="14" r="3" fill="#4a4a4a"/>
-        <circle cx="64" cy="22" r="3" fill="#4a4a4a"/>
-        <circle cx="64" cy="38" r="3" fill="#4a4a4a"/>
-        <circle cx="36" cy="22" r="3" fill="#4a4a4a"/>
-        <circle cx="36" cy="38" r="3" fill="#4a4a4a"/>
-      </svg>
-      <div class="impact-effect"></div>
-    </div>
-    <div class="feathers"></div>
-    <div class="ban-text">BANNED</div>
-  </div>
 
   <script src="main.js"></script>
 </body>
