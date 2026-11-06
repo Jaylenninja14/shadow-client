@@ -63,6 +63,7 @@
         <a href="#screenshots">Screenshots</a>
         <a href="#compare">Compare</a>
         <a href="#whats-new">What's new</a>
+        <a href="#archive">Archive</a>
         <a href="#faq">FAQ</a>
       </nav>
       <button class="mobile-menu-toggle btn btn-ghost btn-sm" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -78,6 +79,7 @@
         <a href="#screenshots">Screenshots</a>
         <a href="#compare">Compare</a>
         <a href="#whats-new">What's new</a>
+        <a href="#archive">Archive</a>
         <a href="#faq">FAQ</a>
       </nav>
     </div>
@@ -277,6 +279,20 @@
       <h2>What's new</h2>
       <div class="changelog">
         <article>
+          <h3>Shadow Client 0.4.7 <span>November 6, 2026</span></h3>
+          <ul>
+            <li><strong>Automatic updates:</strong> when a new version is out, Shadow Client installs it by itself after a 10-second countdown (press Not now to put it off). It never updates while Minecraft or a download is running. Settings → General has your version, a <strong>Check now</strong> button and an <strong>Install updates automatically</strong> switch.</li>
+            <li><strong>Your settings carry over:</strong> before an update installs, Shadow Client saves a copy of your settings, profiles and each profile's Shadow Menu setup; the new version checks them and puts back anything missing, then tells you it's done.</li>
+            <li><strong>Shadow Recorder</strong> (in-game, Shadow Menu 2.1.0): records MP4 video at up to <strong>240 FPS</strong>, encoded on your graphics card (NVIDIA, AMD or Intel; CPU otherwise). Press <strong>F9</strong> to start and stop; the window title shows ● REC while it runs. Choose the frame rate, resolution, quality and folder on its page in the mod menu, and open the recordings folder from there. Videos go to Videos\Shadow Recordings unless you choose another folder. The first recording asks to download FFmpeg once (115 MB). No audio.</li>
+            <li><strong>Shadow Capes</strong> (in-game): an HD cape on your player, 16x the detail of a normal cape: <strong>Mystery</strong> (a white question mark with twinkling stars), <strong>Galaxy</strong> or <strong>Shadow</strong>. Pick one in the mod menu. Only you see it.</li>
+            <li><strong>Shaders:</strong> the Features page has a <strong>Turn on shaders</strong> button that installs Iris and Complementary Reimagined (realistic lighting, shadows, water and sky) and switches them on. Capes get proper lighting with shaders too. In game, O opens the shader settings.</li>
+            <li><strong>Custom FOV</strong> (in-game): field of view up to <strong>179°</strong>, past Minecraft's 110. 180° and more isn't possible with a normal camera (it would mean seeing behind you).</li>
+            <li><strong>Website:</strong> an Archive section lists every Shadow Client version with its downloads.</li>
+            <li>Fixed: the old recorder only captured 20 frames a second, so its videos played much too fast.</li>
+          </ul>
+        </article>
+
+        <article>
           <h3>Shadow Client 0.4.6 <span>November 5, 2026</span></h3>
           <ul>
             <li>Bundled the updated Shadow Menu mod so the Recorder module appears in Minecraft's in-game menu.</li>
@@ -395,6 +411,15 @@
       </div>
     </section>
 
+    <!-- ============================================================ archive -->
+    <section id="archive" class="section wrap">
+      <h2>Archive</h2>
+      <p class="lead">Every Shadow Client release, newest first. Older versions don't get fixes; use them if you need to go back to one.</p>
+      <div class="archive" data-archive>
+        <p class="dim">All versions are on <a href="https://github.com/Jaylenninja14/shadow-client/releases">GitHub Releases</a>.</p>
+      </div>
+    </section>
+
     <!-- ============================================================ faq -->
     <section id="faq" class="section wrap faq">
       <h2>FAQ</h2>
@@ -428,7 +453,7 @@
       </details>
       <details>
         <summary>How do I update?</summary>
-        <p>From 0.2.2, Shadow Client tells you when a new version is out ("Update needed") and updates itself when you press Update now; your profiles, worlds and settings stay. From 0.4.0 the MSI version updates itself too. Older versions show a bar at the top: download the new installer and run it over your current version. The portable version: download the new zip and replace the old folder's files (keep its data folder).</p>
+        <p>From 0.4.7 it updates itself: when a new version is out, Shadow Client installs it after a 10-second countdown (never while you play) and your settings carry over. You can turn that off in Settings. From 0.2.2 it tells you when a new version is out ("Update needed") and updates itself when you press Update now; your profiles, worlds and settings stay. From 0.4.0 the MSI version updates itself too. Older versions show a bar at the top: download the new installer and run it over your current version. The portable version: download the new zip and replace the old folder's files (keep its data folder).</p>
       </details>
       <details>
         <summary>Will it touch my existing .minecraft folder?</summary>

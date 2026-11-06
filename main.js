@@ -47,6 +47,55 @@
   }
 })();
 
+// ============================================================ Archive
+// downloads/releases.json (written by `npm run release`): every published version with its files.
+(async () => {
+  const box = document.querySelector("[data-archive]");
+  if (!box) return;
+  try {
+    const res = await fetch("downloads/releases.json", { cache: "no-cache" });
+    if (!res.ok) return;
+    const releases = await res.json();
+    if (!Array.isArray(releases) || releases.length === 0) return;
+    const kinds = [["Shadow-Client-Setup.exe", "Installer"], ["Shadow-Client.msi", "MSI"], ["Shadow-Client-Portable.zip", "Portable"]];
+    const mb = (n) => `${(n / 1048576).toFixed(1)} MB`;
+    const link = (href, text, title) => {
+      const a = document.createElement("a");
+      a.href = href;
+      a.textContent = text;
+      if (title) a.title = title;
+      return a;
+    };
+    const rows = releases.map((r, i) => {
+      const row = document.createElement("div");
+      row.className = "archive-row";
+      const name = document.createElement("strong");
+      name.textContent = `Shadow Client ${r.version.replace(/^v/, "")}`;
+      if (i === 0) {
+        const tag = document.createElement("span");
+        tag.className = "archive-latest";
+        tag.textContent = "Latest";
+        name.append(" ", tag);
+      }
+      const date = document.createElement("span");
+      date.className = "archive-date";
+      date.textContent = new Date(r.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+      const files = document.createElement("span");
+      files.className = "archive-files";
+      for (const [file, label] of kinds) {
+        const asset = (r.assets || []).find((a) => a.name === file);
+        if (asset) files.append(link(asset.url, label, mb(asset.size)));
+      }
+      files.append(link(r.url, "Notes"));
+      row.append(name, date, files);
+      return row;
+    });
+    box.replaceChildren(...rows);
+  } catch {
+    // opened straight from disk or not published yet: the link to GitHub Releases stays
+  }
+})();
+
 // ============================================================ Scroll progress indicator
 const scrollProgress = document.querySelector(".scroll-progress");
 window.addEventListener("scroll", () => {
