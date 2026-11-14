@@ -279,6 +279,14 @@
       <h2>What's new</h2>
       <div class="changelog">
         <article>
+          <h3>Shadow Client 0.6.9 <span>November 14, 2026</span></h3>
+          <ul>
+            <li><strong>Full FPS when you click into another window</strong>: the game used to drop to a few FPS as soon as another window was focused, because Dynamic FPS went down to 1 FPS (60 while hovered) and Minecraft's own Inactivity FPS Limit fell to 30, then 10, without input. Before each launch Shadow Client now lifts both: Dynamic FPS has no limit when the game is unfocused or hovered, and Inactivity FPS Limit is &quot;Minimized&quot;, so only a minimized game rests. Your other Dynamic FPS settings stay as they are.</li>
+            <li><strong>The setting is &quot;Full FPS in the background&quot;</strong>, under Settings → Performance. It's on by default; turn it off to let the game slow down and save power while you're in another window.</li>
+          </ul>
+        </article>
+
+        <article>
           <h3>Shadow Client 0.6.8 <span>November 14, 2026</span></h3>
           <ul>
             <li><strong>Tell Shadow Bot who to leave alone</strong>: use &quot;/bot friendly &lt;name&gt;&quot;, or say &quot;friendly &lt;name&gt;&quot; or &quot;don't attack &lt;name&gt;&quot; in chat, and the bot won't attack that player. &quot;/bot unfriendly &lt;name&gt;&quot; undoes it, and &quot;/bot friendly&quot; or &quot;friends&quot; lists them. Only the bot's owner can change the list from chat, and Bot Arena rounds aren't affected.</li>
