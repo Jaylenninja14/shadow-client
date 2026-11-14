@@ -1,21 +1,21 @@
 {
-  "version": "0.6.10",
+  "version": "0.6.11",
   "base": "https://github.com/Jaylenninja14/shadow-client/releases/latest/download/",
   "files": {
     "setup": {
       "name": "Shadow-Client-Setup.exe",
-      "size": 13291433,
-      "sha256": "6eaf5ba0f447fb7664266a5876a7c2d84c09e34ea42fa5377a0a5c24fac35d5d"
+      "size": 13315709,
+      "sha256": "278832e503ab08692cb6b8437feb48cde1305f749fc300be838908b872fda61e"
     },
     "msi": {
       "name": "Shadow-Client.msi",
-      "size": 21331968,
-      "sha256": "567ac2d6f3fd0342f6e3d50d5829def0c230f3df1ab4853319b1e0335831d219"
+      "size": 21352448,
+      "sha256": "193ab282cb482978b4bed2e1fc412fc1d4962bbea856d03e8757778f183ec6af"
     },
     "portable": {
       "name": "Shadow-Client-Portable.zip",
-      "size": 20934983,
-      "sha256": "ea1bc0caed7e3d7888285c6442b6bb28ac21c235192841ea429dfaf3f6f32d72"
+      "size": 20960396,
+      "sha256": "43e59765c521d4b39c1461fe011369f26e34dd055fe9a3988a6b3e5b5cb7f4a4"
     }
   }
 }
