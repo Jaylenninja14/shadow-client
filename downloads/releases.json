@@ -3,6 +3,28 @@
     "assets": [
       {
         "name": "Shadow-Client-Portable.zip",
+        "size": 20978272,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.6.12/Shadow-Client-Portable.zip"
+      },
+      {
+        "name": "Shadow-Client-Setup.exe",
+        "size": 13337297,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.6.12/Shadow-Client-Setup.exe"
+      },
+      {
+        "name": "Shadow-Client.msi",
+        "size": 21372928,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.6.12/Shadow-Client.msi"
+      }
+    ],
+    "date": "2026-11-15T01:08:02Z",
+    "url": "https://github.com/Jaylenninja14/shadow-client/releases/tag/v0.6.12",
+    "version": "v0.6.12"
+  },
+  {
+    "assets": [
+      {
+        "name": "Shadow-Client-Portable.zip",
         "size": 20960396,
         "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.6.11/Shadow-Client-Portable.zip"
       },
