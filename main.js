@@ -261,16 +261,6 @@ window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
 
-// ============================================================ Preload critical images
-const preloadImages = ["images/launcher-home.png", "images/ingame-menu.png"];
-preloadImages.forEach(src => {
-  const link = document.createElement("link");
-  link.rel = "preload";
-  link.as = "image";
-  link.href = src;
-  document.head.appendChild(link);
-});
-
 // ============================================================ Enhanced accessibility
 // Add role="region" and aria-label to major sections for screen readers
 document.querySelectorAll(".section").forEach((section, index) => {
@@ -302,4 +292,143 @@ if ("IntersectionObserver" in window) {
   document.querySelectorAll("img[loading='lazy']").forEach(img => {
     imageObserver.observe(img);
   });
+}
+
+// ============================================================ Light and dark
+document.body.classList.remove("no-js");
+const themeToggle = document.querySelector(".theme-toggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("ghost-theme", next); } catch { /* private window: just this visit */ }
+  });
+}
+
+// ============================================================ Download menu (Installer / MSI / Portable)
+for (const menu of document.querySelectorAll(".dl-menu")) {
+  const more = menu.querySelector(".dl-more");
+  const set = (open) => { menu.classList.toggle("open", open); more.setAttribute("aria-expanded", String(open)); };
+  more.addEventListener("click", (e) => { e.stopPropagation(); set(!menu.classList.contains("open")); });
+  document.addEventListener("click", (e) => { if (!menu.contains(e.target)) set(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
+}
+
+// ============================================================ Showcases: tabs, arrows, auto-advance
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+for (const show of document.querySelectorAll("[data-showcase]")) {
+  const tabs = Array.from(show.querySelectorAll(".tab"));
+  const slides = Array.from(show.querySelectorAll(".slide"));
+  const copy = show.querySelector(".stage-copy");
+  const bar = show.querySelector(".stage-progress");
+  let data = [];
+  try { data = JSON.parse(show.querySelector(".stage-data").textContent); } catch { /* copy stays on the first slide */ }
+  const SPAN = 7000;
+  let current = 0, started = performance.now(), paused = false, visible = false;
+  const go = (i) => {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s, k) => s.classList.toggle("on", k === current));
+    tabs.forEach((t, k) => { t.classList.toggle("on", k === current); t.setAttribute("aria-selected", String(k === current)); });
+    const d = data[current];
+    if (d && copy) {
+      copy.classList.add("swap");
+      setTimeout(() => {
+        copy.querySelector("h3").innerHTML = `${d.a} <b>${d.b}</b>`;
+        copy.querySelector("p").innerHTML = d.p;
+        copy.classList.remove("swap");
+      }, 220);
+    }
+    started = performance.now();
+  };
+  tabs.forEach((t, i) => t.addEventListener("click", () => go(i)));
+  show.querySelectorAll(".stage-arrow").forEach((b) => b.addEventListener("click", () => go(current + Number(b.dataset.dir))));
+  const frame = show.querySelector(".stage-frame");
+  frame.addEventListener("mouseenter", () => { paused = true; });
+  frame.addEventListener("mouseleave", () => { paused = false; started = performance.now(); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) started = performance.now(); }, { threshold: 0.35 }).observe(frame);
+  }
+  if (!reduceMotion) {
+    const tick = (now) => {
+      if (visible && !paused) {
+        const f = (now - started) / SPAN;
+        if (f >= 1) go(current + 1);
+        else if (bar) bar.style.width = `${f * 100}%`;
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+}
+
+// ============================================================ The hero window straightens as you scroll
+const heroWindow = document.querySelector(".hero-window");
+if (heroWindow && !reduceMotion) {
+  const tilt = () => {
+    const r = heroWindow.getBoundingClientRect();
+    const f = Math.min(Math.max((window.innerHeight - r.top) / (window.innerHeight * 0.9), 0), 1);
+    heroWindow.style.setProperty("--tilt", `${(18 * (1 - f)).toFixed(2)}deg`);
+  };
+  tilt();
+  window.addEventListener("scroll", tilt, { passive: true });
+  window.addEventListener("resize", tilt);
+}
+
+// ============================================================ Things fade in as they scroll into view
+const reveals = document.querySelectorAll(".reveal, .perf");
+if ("IntersectionObserver" in window && !reduceMotion) {
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      // cards in one row come in one after another
+      const siblings = Array.from(e.target.parentElement.children);
+      e.target.style.transitionDelay = `${Math.min(siblings.indexOf(e.target) % 6, 5) * 70}ms`;
+      e.target.classList.add("in");
+      io.unobserve(e.target);
+    }
+  }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+  reveals.forEach((el) => io.observe(el));
+  // a fallback in case the observer is held back (a background tab, some browsers): anything scrolled past shows
+  const late = () => {
+    let left = 0;
+    for (const el of reveals) {
+      if (el.classList.contains("in")) continue;
+      if (el.getBoundingClientRect().top < window.innerHeight) { el.classList.add("in"); io.unobserve(el); } else left++;
+    }
+    if (!left) window.removeEventListener("scroll", onScroll);
+  };
+  let lateTimer = 0;
+  const onScroll = () => { clearTimeout(lateTimer); lateTimer = setTimeout(late, 400); };
+  window.addEventListener("scroll", onScroll, { passive: true });
+} else {
+  reveals.forEach((el) => el.classList.add("in"));
+}
+
+// ============================================================ What's new: the newest four, then "Show every version"
+const changelog = document.querySelector(".changelog");
+const moreBtn = document.querySelector("[data-more]");
+if (changelog && moreBtn) {
+  const older = Array.from(changelog.querySelectorAll(":scope > article")).slice(4);
+  older.forEach((a) => a.classList.add("older"));
+  if (older.length === 0) moreBtn.parentElement.hidden = true;
+  moreBtn.textContent = `Show every version (${older.length} more)`;
+  moreBtn.addEventListener("click", () => {
+    const all = changelog.classList.toggle("all");
+    moreBtn.setAttribute("aria-expanded", String(all));
+    moreBtn.textContent = all ? "Show fewer" : `Show every version (${older.length} more)`;
+    if (!all) document.getElementById("whats-new").scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+// ============================================================ The nav shows where you are
+const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+const navTargets = navLinks.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+if ("IntersectionObserver" in window && navTargets.length) {
+  const spy = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      navLinks.forEach((a) => a.classList.toggle("on", a.getAttribute("href") === `#${e.target.id}`));
+    }
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  navTargets.forEach((t) => spy.observe(t));
 }
