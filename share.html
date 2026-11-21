@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shared Pack · Shadow Client</title>
-  <meta name="description" content="Someone shared a Shadow Client mod pack with you. Open it in Shadow Client to get the same mods, resource packs and shaders.">
+  <title>Shared Pack · Ghost Client</title>
+  <meta name="description" content="Someone shared a Ghost Client mod pack with you. Open it in Ghost Client to get the same mods, resource packs and shaders.">
   <meta name="theme-color" content="#08070e">
   <meta name="robots" content="noindex">
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
@@ -42,7 +42,7 @@
 
   <header class="nav">
     <div class="wrap nav-inner">
-      <a class="brand" href="index.html"><img src="images/logo.svg" alt="" width="34" height="34"><span>Shadow Client</span></a>
+      <a class="brand" href="index.html"><img src="images/logo.svg" alt="" width="34" height="34"><span>Ghost Client</span></a>
       <a class="btn btn-ghost btn-sm" style="margin-left:auto" href="index.html#download">Download</a>
     </div>
   </header>
@@ -55,28 +55,28 @@
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" id="open" href="#">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" /></svg>
-          Open in Shadow Client
+          Open in Ghost Client
         </a>
         <button class="btn btn-ghost btn-lg" id="copy" type="button">Copy link</button>
       </div>
-      <p class="hint">Shadow Client makes a new profile with this pack and shows you the download list before installing anything. Everything comes from Modrinth or CurseForge.</p>
+      <p class="hint">Ghost Client makes a new profile with this pack and shows you the download list before installing anything. Everything comes from Modrinth or CurseForge.</p>
       <ol class="steps">
-        <li>Don't have Shadow Client? <a class="grad" href="index.html#download">Download it</a> (free, Windows 10 &amp; 11), open it once, then come back and press <strong>Open in Shadow Client</strong>.</li>
-        <li>Nothing happens? In Shadow Client go to <strong>Profiles → Add from share link</strong> and paste this page's link.</li>
+        <li>Don't have Ghost Client? <a class="grad" href="index.html#download">Download it</a> (free, Windows 10 &amp; 11), open it once, then come back and press <strong>Open in Ghost Client</strong>.</li>
+        <li>Nothing happens? In Ghost Client go to <strong>Profiles → Add from share link</strong> and paste this page's link.</li>
       </ol>
       <div class="items" id="items" hidden><h2 id="items-title"></h2><ul id="list"></ul></div>
     </section>
 
     <section class="share-card bad" id="bad" hidden>
       <h1>This link doesn't work</h1>
-      <p>It may have been cut off when it was sent. Ask for the link again, or get Shadow Client below.</p>
-      <a class="btn btn-primary btn-lg" href="index.html#download">Download Shadow Client</a>
+      <p>It may have been cut off when it was sent. Ask for the link again, or get Ghost Client below.</p>
+      <a class="btn btn-primary btn-lg" href="index.html#download">Download Ghost Client</a>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap footer-inner">
-      <div class="brand"><img src="images/logo.svg" alt="" width="26" height="26"><span>Shadow Client</span></div>
+      <div class="brand"><img src="images/logo.svg" alt="" width="26" height="26"><span>Ghost Client</span></div>
       <p><a href="https://github.com/Jaylenninja14/shadow-client/releases">Releases</a> · Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
     </div>
   </footer>
@@ -118,7 +118,7 @@
       if (!pack) { show("bad"); return; }
 
       const name = pack.n.trim() || "Shared pack";
-      document.title = `${name} · Shadow Client`;
+      document.title = `${name} · Ghost Client`;
       document.getElementById("name").textContent = name;
       const tags = document.getElementById("tags");
       const tag = (text) => { const s = document.createElement("span"); s.textContent = text; tags.append(s); };

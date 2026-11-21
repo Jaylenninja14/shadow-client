@@ -57,7 +57,8 @@
     if (!res.ok) return;
     const releases = await res.json();
     if (!Array.isArray(releases) || releases.length === 0) return;
-    const kinds = [["Shadow-Client-Setup.exe", "Installer"], ["Shadow-Client.msi", "MSI"], ["Shadow-Client-Portable.zip", "Portable"]];
+    // releases before the rename to Ghost Client used Shadow-Client-* names
+    const kinds = [["-Setup.exe", "Installer"], [".msi", "MSI"], ["-Portable.zip", "Portable"]];
     const mb = (n) => `${(n / 1048576).toFixed(1)} MB`;
     const link = (href, text, title) => {
       const a = document.createElement("a");
@@ -70,7 +71,7 @@
       const row = document.createElement("div");
       row.className = "archive-row";
       const name = document.createElement("strong");
-      name.textContent = `Shadow Client ${r.version.replace(/^v/, "")}`;
+      name.textContent = `Ghost Client ${r.version.replace(/^v/, "")}`;
       if (i === 0) {
         const tag = document.createElement("span");
         tag.className = "archive-latest";
@@ -83,7 +84,7 @@
       const files = document.createElement("span");
       files.className = "archive-files";
       for (const [file, label] of kinds) {
-        const asset = (r.assets || []).find((a) => a.name === file);
+        const asset = ["Ghost-Client", "Shadow-Client"].map((p) => (r.assets || []).find((a) => a.name === p + file)).find(Boolean);
         if (asset) files.append(link(asset.url, label, mb(asset.size)));
       }
       files.append(link(r.url, "Notes"));
