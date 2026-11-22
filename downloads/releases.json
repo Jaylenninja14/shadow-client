@@ -3,6 +3,95 @@
     "assets": [
       {
         "name": "Ghost-Client-Portable.zip",
+        "size": 21540572,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.5/Ghost-Client-Portable.zip"
+      },
+      {
+        "name": "Ghost-Client-Setup.exe",
+        "size": 13639632,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.5/Ghost-Client-Setup.exe"
+      },
+      {
+        "name": "Ghost-Client.msi",
+        "size": 21938176,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.5/Ghost-Client.msi"
+      },
+      {
+        "name": "Ghost-Menu-1.21.1.jar",
+        "size": 6880958,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.5/Ghost-Menu-1.21.1.jar"
+      },
+      {
+        "name": "Ghost-Menu-1.21.11.jar",
+        "size": 6870210,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.5/Ghost-Menu-1.21.11.jar"
+      },
+      {
+        "name": "Ghost-Menu-1.21.jar",
+        "size": 6880958,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.5/Ghost-Menu-1.21.jar"
+      },
+      {
+        "name": "Shadow-Client-Setup.exe",
+        "size": 13639632,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.5/Shadow-Client-Setup.exe"
+      },
+      {
+        "name": "Shadow-Client.msi",
+        "size": 21938176,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.5/Shadow-Client.msi"
+      }
+    ],
+    "date": "2026-11-22T02:30:14Z",
+    "url": "https://github.com/Jaylenninja14/shadow-client/releases/tag/v0.7.5",
+    "version": "v0.7.5"
+  },
+  {
+    "assets": [
+      {
+        "name": "Ghost-Client-Portable.zip",
+        "size": 21542686,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.4/Ghost-Client-Portable.zip"
+      },
+      {
+        "name": "Ghost-Client-Setup.exe",
+        "size": 13641055,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.4/Ghost-Client-Setup.exe"
+      },
+      {
+        "name": "Ghost-Client.msi",
+        "size": 21938176,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.4/Ghost-Client.msi"
+      },
+      {
+        "name": "Ghost-Menu-1.21.1.jar",
+        "size": 6880958,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.4/Ghost-Menu-1.21.1.jar"
+      },
+      {
+        "name": "Ghost-Menu-1.21.11.jar",
+        "size": 6870210,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.4/Ghost-Menu-1.21.11.jar"
+      },
+      {
+        "name": "Shadow-Client-Setup.exe",
+        "size": 13641055,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.4/Shadow-Client-Setup.exe"
+      },
+      {
+        "name": "Shadow-Client.msi",
+        "size": 21938176,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.4/Shadow-Client.msi"
+      }
+    ],
+    "date": "2026-11-21T22:50:26Z",
+    "url": "https://github.com/Jaylenninja14/shadow-client/releases/tag/v0.7.4",
+    "version": "v0.7.4"
+  },
+  {
+    "assets": [
+      {
+        "name": "Ghost-Client-Portable.zip",
         "size": 21545408,
         "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.3/Ghost-Client-Portable.zip"
       },
