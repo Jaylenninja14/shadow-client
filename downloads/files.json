@@ -1,21 +1,21 @@
 {
-  "version": "0.8.0",
+  "version": "0.8.1",
   "base": "https://github.com/Jaylenninja14/shadow-client/releases/latest/download/",
   "files": {
     "setup": {
       "name": "Ghost-Client-Setup.exe",
-      "size": 14221367,
-      "sha256": "ebf54b82e51998d28dc538d893cb2e2d6225eda0a327f8ce71a3efaf143d9b0f"
+      "size": 14227046,
+      "sha256": "54baef0bc42b8b9c0558d741873eda693c6a170f364f9106e434cb25f99401d9"
     },
     "msi": {
       "name": "Ghost-Client.msi",
-      "size": 22446080,
-      "sha256": "6ae303f6b4fa480b863fd9c43d2e4feff505d403d4433910c23117203c363ecc"
+      "size": 22462464,
+      "sha256": "a34dac9eb75dce750356788b18eca1b7669e3b7c0db383ff2458b8a7d37d4869"
     },
     "portable": {
       "name": "Ghost-Client-Portable.zip",
-      "size": 22055855,
-      "sha256": "f86f9d484faee5e7f6b3ed3152b94174326cc9f2586b6df9d6ebf2d3006b32b6"
+      "size": 22068121,
+      "sha256": "0913dd95973f0f38d2ffcf23bdce87fd710d19a431b229a7468044e0f72f2fd7"
     }
   }
 }

@@ -51,6 +51,7 @@
         <a href="#launcher"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg><span>Launcher</span></a>
         <a href="#friends"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.5c1.9.8 3 2.6 3 5"/></svg><span>Friends</span></a>
         <a href="#whats-new"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4L21 8M21 3v5h-5"/></svg><span>What's new</span></a>
+        <a href="#archive"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1.5"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9M10 13h4"/></svg><span>Archive</span></a>
       </nav>
       <div class="nav-end">
         <button class="btn-icon theme-toggle" type="button" aria-label="Switch between light and dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="moon" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
@@ -66,6 +67,7 @@
         <a href="#launcher">Launcher</a>
         <a href="#friends">Friends</a>
         <a href="#whats-new">What's new</a>
+        <a href="#archive">Archive</a>
         <a href="#download">Download</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -268,6 +270,7 @@
           <ul data-hashes><li>Shown when the files are published.</li></ul>
           <button class="copy-hashes btn btn-ghost btn-sm" type="button" style="display:none; margin-top: 12px;">Copy checksums</button>
         </details>
+        <p class="note"><strong>Need an older version?</strong> Every release is in the <a href="#archive">Archive</a>, each with its installer, MSI, portable zip and notes.</p>
         <p class="note">Windows may show "Windows protected your PC" because the installer isn't code-signed yet. Click <em>More info</em> → <em>Run anyway</em>.</p>
         <p class="note"><strong>Playing from another launcher?</strong> Ghost Client also comes as one mod file for Dawn, Feather, Prism, MultiMC or the official Minecraft Launcher: the Ghost Client home screen, mod menu, HUD, cosmetics, Ghost Friends and Fight Your Ghost. Put the Ghost Client mod for <a href="https://github.com/Jaylenninja14/shadow-client/releases/latest/download/Ghost-Client-Mod-1.21.11.jar">1.21.11</a> or <a href="https://github.com/Jaylenninja14/shadow-client/releases/latest/download/Ghost-Client-Mod-1.21.1.jar">1.21.1</a> in a Fabric profile's mods folder (Fabric API is inside it) and play. If that client's own menu also opens on Right Shift, click "Menu key" on the home screen to pick another key.</p>
       </div>
@@ -301,6 +304,16 @@
       <span class="kicker">Changelog</span>
       <h2>What's <b>new</b></h2>
       <div class="changelog">
+        <article>
+          <h3>Ghost Client 0.8.1 <span>November 28, 2026</span></h3>
+          <ul>
+            <li><strong>One click installs:</strong> clicking Install on Modrinth, CurseForge, the Performance tab or an update now installs straight away, with the mods it needs, and tells you when it's done. The review only opens when something needs you: a conflict, a file you have to download yourself, or a mod that isn't made for the profile.</li>
+            <li><strong>&quot;Installed&quot; instead of Install:</strong> mods, resource packs and shaders that are already in the selected profile say Installed in search, even ones you added by hand (they're recognised by their file on Modrinth). In a project's details, the version you have says Installed.</li>
+            <li><strong>Ghost Mods says Installed too:</strong> the button changes the moment a pack is in, and a pack you already copied in yourself counts as well.</li>
+            <li><strong>Ghost Background is off:</strong> Minecraft's own menu background is back. Ghost Menu turns the night-sky background off once; switch it back on any time in Ghost Menu → Visual → Ghost Background.</li>
+          </ul>
+        </article>
+
         <article>
           <h3>Ghost Client 0.8.0 <span>November 28, 2026</span></h3>
           <ul>
@@ -818,6 +831,7 @@
 
     <!-- ============================================================ archive -->
     <section id="archive" class="section wrap">
+      <span class="kicker">Archive</span>
       <h2>Every <b>release</b></h2>
       <p class="lead">Every Ghost Client release, newest first. Older versions don't get fixes; use them if you need to go back to one.</p>
       <div class="archive" data-archive>
