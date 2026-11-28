@@ -4,6 +4,68 @@
       {
         "name": "Ghost-Client-Mod-1.21.1.jar",
         "size": 9233689,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Client-Mod-1.21.1.jar"
+      },
+      {
+        "name": "Ghost-Client-Mod-1.21.11.jar",
+        "size": 9363254,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Client-Mod-1.21.11.jar"
+      },
+      {
+        "name": "Ghost-Client-Mod-1.21.jar",
+        "size": 9233689,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Client-Mod-1.21.jar"
+      },
+      {
+        "name": "Ghost-Client-Portable.zip",
+        "size": 22055855,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Client-Portable.zip"
+      },
+      {
+        "name": "Ghost-Client-Setup.exe",
+        "size": 14221367,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Client-Setup.exe"
+      },
+      {
+        "name": "Ghost-Client.msi",
+        "size": 22446080,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Client.msi"
+      },
+      {
+        "name": "Ghost-Menu-1.21.1.jar",
+        "size": 9233689,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Menu-1.21.1.jar"
+      },
+      {
+        "name": "Ghost-Menu-1.21.11.jar",
+        "size": 9363254,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Menu-1.21.11.jar"
+      },
+      {
+        "name": "Ghost-Menu-1.21.jar",
+        "size": 9233689,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Ghost-Menu-1.21.jar"
+      },
+      {
+        "name": "Shadow-Client-Setup.exe",
+        "size": 14221367,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Shadow-Client-Setup.exe"
+      },
+      {
+        "name": "Shadow-Client.msi",
+        "size": 22446080,
+        "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.8.0/Shadow-Client.msi"
+      }
+    ],
+    "date": "2026-11-28T11:30:40Z",
+    "url": "https://github.com/Jaylenninja14/shadow-client/releases/tag/v0.8.0",
+    "version": "v0.8.0"
+  },
+  {
+    "assets": [
+      {
+        "name": "Ghost-Client-Mod-1.21.1.jar",
+        "size": 9233689,
         "url": "https://github.com/Jaylenninja14/shadow-client/releases/download/v0.7.7/Ghost-Client-Mod-1.21.1.jar"
       },
       {
